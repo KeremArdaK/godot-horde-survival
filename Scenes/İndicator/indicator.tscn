@@ -1,0 +1,10 @@
+[gd_scene format=3 uid="uid://qyqna8s18ehg"]
+
+[sub_resource type="PlaceholderTexture2D" id="PlaceholderTexture2D_7p03k"]
+
+[node name="Indicator" type="Node2D" unique_id=616764160]
+
+[node name="Sprite2D" type="Sprite2D" parent="." unique_id=93003350]
+modulate = Color(3.851815, 0, 0, 0.49411765)
+scale = Vector2(40, 40)
+texture = SubResource("PlaceholderTexture2D_7p03k")

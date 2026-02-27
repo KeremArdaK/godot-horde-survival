@@ -1,0 +1,11 @@
+[gd_scene format=3 uid="uid://bwbpcy7r8faoq"]
+
+[ext_resource type="Script" uid="uid://cjkji8e1mwixx" path="res://Scenes/DamageIndıcator/damage_indicator.gd" id="1_47umm"]
+
+[node name="DamageIndicator" type="Node2D" unique_id=97073178]
+script = ExtResource("1_47umm")
+
+[node name="Label" type="Label" parent="." unique_id=872757914]
+offset_right = 40.0
+offset_bottom = 23.0
+text = "text"

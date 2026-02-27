@@ -1,0 +1,23 @@
+[gd_scene format=3 uid="uid://ce6jvt1p6kdvf"]
+
+[ext_resource type="Texture2D" uid="uid://cwvab22wk41fd" path="res://icon.svg" id="1_mw074"]
+[ext_resource type="Script" uid="uid://7vacvems4sou" path="res://Scenes/Enemy/enemy.gd" id="1_nvvbs"]
+[ext_resource type="PackedScene" uid="uid://bwbpcy7r8faoq" path="res://Scenes/DamageIndıcator/damage_indicator.tscn" id="2_2t2r4"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_nvvbs"]
+size = Vector2(28, 28)
+
+[node name="Enemy" type="CharacterBody2D" unique_id=1795396734 groups=["enemy"]]
+modulate = Color(1, 0, 0, 1)
+collision_layer = 2
+collision_mask = 2
+script = ExtResource("1_nvvbs")
+damage_indicator_scene = ExtResource("2_2t2r4")
+
+[node name="Sprite2D" type="Sprite2D" parent="." unique_id=310025347]
+modulate = Color(1, 0.22266191, 0.32739595, 1)
+scale = Vector2(0.25, 0.25)
+texture = ExtResource("1_mw074")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=599736358]
+shape = SubResource("RectangleShape2D_nvvbs")
