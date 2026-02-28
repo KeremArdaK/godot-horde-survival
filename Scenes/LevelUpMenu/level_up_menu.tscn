@@ -1,0 +1,37 @@
+[gd_scene format=3 uid="uid://dhrbjgj3ug3r2"]
+
+[ext_resource type="Script" uid="uid://b3rf32hkoj7u4" path="res://Scenes/LevelUpMenu/level_up_menu.gd" id="1_ssahq"]
+
+[node name="LevelUpMenu" type="CanvasLayer" unique_id=1341261814]
+process_mode = 3
+script = ExtResource("1_ssahq")
+
+[node name="HBoxContainer" type="HBoxContainer" parent="." unique_id=897263504]
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -400.0
+offset_top = -233.0
+offset_right = 411.0
+offset_bottom = 106.0
+grow_horizontal = 2
+grow_vertical = 2
+alignment = 1
+
+[node name="Can" type="Button" parent="HBoxContainer" unique_id=591000970]
+layout_mode = 2
+text = "Gain Extra Health"
+
+[node name="Hız" type="Button" parent="HBoxContainer" unique_id=1497880654]
+layout_mode = 2
+text = "Gain Extra Speed"
+
+[node name="Hasar" type="Button" parent="HBoxContainer" unique_id=1043198502]
+layout_mode = 2
+text = "Gain Extra Attack"
+
+[connection signal="pressed" from="HBoxContainer/Can" to="." method="_on_can_pressed"]
+[connection signal="pressed" from="HBoxContainer/Hız" to="." method="_on_hız_pressed"]
+[connection signal="pressed" from="HBoxContainer/Hasar" to="." method="_on_hasar_pressed"]

@@ -1,21 +1,83 @@
 [gd_scene format=3 uid="uid://t77qp67eqmb"]
 
 [ext_resource type="Script" uid="uid://dpupi6qc1ofen" path="res://Scenes/Player/player.gd" id="1_a3d8c"]
-[ext_resource type="Texture2D" uid="uid://cwvab22wk41fd" path="res://icon.svg" id="1_uvnfx"]
 [ext_resource type="PackedScene" uid="uid://3mm5ugqf4txt" path="res://Scenes/Bullet/bullet.tscn" id="2_xpcdj"]
+[ext_resource type="PackedScene" uid="uid://dhrbjgj3ug3r2" path="res://Scenes/LevelUpMenu/level_up_menu.tscn" id="3_mtuoh"]
+[ext_resource type="Texture2D" uid="uid://b0i7p55avlpkl" path="res://Assets/doc.png" id="4_mtuoh"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_htcer"]
+atlas = ExtResource("4_mtuoh")
+region = Rect2(0, 0, 16, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_dd0ac"]
+atlas = ExtResource("4_mtuoh")
+region = Rect2(16, 0, 16, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_0u5uq"]
+atlas = ExtResource("4_mtuoh")
+region = Rect2(32, 0, 16, 32)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_jlvik"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_htcer")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_dd0ac")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_0u5uq")
+}],
+"loop": true,
+"name": &"walk",
+"speed": 5.0
+}]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_a3d8c"]
 size = Vector2(108, 110)
 
-[node name="Player" type="CharacterBody2D" unique_id=960690247 groups=["player"]]
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_mtuoh"]
+size = Vector2(108, 110)
+
+[node name="Player" type="CharacterBody2D" unique_id=960690247 node_paths=PackedStringArray("xp_bar", "health_bar") groups=["player"]]
 scale = Vector2(0.5, 0.5)
 script = ExtResource("1_a3d8c")
 bullet_scene = ExtResource("2_xpcdj")
+xp_bar = NodePath("ProgressBar")
+health_bar = NodePath("HealthBar")
+level_up_menu_scene = ExtResource("3_mtuoh")
 
-[node name="Sprite2D" type="Sprite2D" parent="." unique_id=84321892]
-modulate = Color(0.14901961, 0.11372549, 1, 1)
-texture = ExtResource("1_uvnfx")
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="." unique_id=1210102811]
+texture_filter = 1
+scale = Vector2(8, 8)
+sprite_frames = SubResource("SpriteFrames_jlvik")
+animation = &"walk"
+frame_progress = 0.1711787
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=1426530093]
+visible = false
 position = Vector2(-1, 1)
 shape = SubResource("RectangleShape2D_a3d8c")
+
+[node name="ProgressBar" type="ProgressBar" parent="." unique_id=2014300626]
+offset_left = -62.0
+offset_top = -92.0
+offset_right = 68.0
+offset_bottom = -65.0
+show_percentage = false
+
+[node name="Hurtbox" type="Area2D" parent="." unique_id=909843022]
+visible = false
+collision_mask = 2
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Hurtbox" unique_id=333078151]
+position = Vector2(-2, 1)
+shape = SubResource("RectangleShape2D_mtuoh")
+
+[node name="HealthBar" type="ProgressBar" parent="." unique_id=2061604066]
+offset_left = -62.0
+offset_top = -120.0
+offset_right = 68.0
+offset_bottom = -93.0
+show_percentage = false

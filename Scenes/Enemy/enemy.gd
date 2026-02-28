@@ -35,6 +35,9 @@ func take_damage(amount:int, bullet_dir:Vector2):
 	
 	if health <= 0:
 		is_dead = true
+		
+		if player != null and player.has_method("gain_xp"):
+			player.gain_xp(25)
 		if get_parent().has_method("enemy_died"):
 			get_parent().enemy_died()
 		queue_free()

@@ -57,7 +57,7 @@ func enemy_died():
 	
 func next_wave():
 	current_wave += 1
-	
+	$CanvasLayer/Label.text = str("Wave: ",current_wave)
 	enemies_to_spawn = min(enemies_to_spawn + 1, 15)
 	
 	start_wave()

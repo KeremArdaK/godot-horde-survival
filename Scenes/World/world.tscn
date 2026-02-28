@@ -9,13 +9,13 @@
 size = Vector2(13, 662)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_t1gg8"]
-size = Vector2(1158, 16)
+size = Vector2(1165, 11)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_yp2ti"]
 size = Vector2(1152, 20)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_3rhlx"]
-size = Vector2(27, 618)
+size = Vector2(16, 643)
 
 [node name="World" type="Node2D" unique_id=1916460925]
 script = ExtResource("1_yp2ti")
@@ -29,7 +29,7 @@ position = Vector2(-3.5, 321)
 shape = SubResource("RectangleShape2D_e2bkl")
 
 [node name="CollisionShape2D2" type="CollisionShape2D" parent="StaticBody2D" unique_id=60758532]
-position = Vector2(582, -2)
+position = Vector2(585.5, -4.5)
 shape = SubResource("RectangleShape2D_t1gg8")
 
 [node name="CollisionShape2D3" type="CollisionShape2D" parent="StaticBody2D" unique_id=114393502]
@@ -37,8 +37,20 @@ position = Vector2(579, 654)
 shape = SubResource("RectangleShape2D_yp2ti")
 
 [node name="CollisionShape2D4" type="CollisionShape2D" parent="StaticBody2D" unique_id=1382783195]
-position = Vector2(1153.5, 311)
+position = Vector2(1159, 323.5)
 shape = SubResource("RectangleShape2D_3rhlx")
 
 [node name="Player" parent="." unique_id=960690247 instance=ExtResource("1_t1gg8")]
-position = Vector2(110, 126)
+position = Vector2(590, 246)
+
+[node name="CanvasLayer" type="CanvasLayer" parent="." unique_id=489892999]
+
+[node name="Label" type="Label" parent="CanvasLayer" unique_id=1255764928]
+anchors_preset = 5
+anchor_left = 0.5
+anchor_right = 0.5
+offset_left = -0.5
+offset_right = 0.5
+offset_bottom = 23.0
+grow_horizontal = 2
+text = "Wave: 1"
